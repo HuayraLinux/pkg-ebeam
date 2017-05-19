@@ -1,40 +1,4 @@
 #!/bin/sh
-# create a few links to /opt/interact/bin
-ln -s /opt/interact/bin/interact /usr/bin/interact
-####ln -s /opt/interact/bin/init-diva /usr/sbin/init-diva
-####ln -s /opt/interact/bin/init-calibration /opt/interact/bin/ebeam-calibrate
-####ln -s /opt/interact/bin/15_interact /etc/pm/sleep.d/15_interact
-
-#ln -s /opt/interact/bin/ebeam-server /usr/sbin/ebeam-server
-
-# links for Qt libs
-#ln -s /opt/interact/bin/libQtCore.so.4.7.0    /opt/interact/bin/libQtCore.so.4
-#ln -s /opt/interact/bin/libQtGui.so.4.7.0     /opt/interact/bin/libQtGui.so.4
-#ln -s /opt/interact/bin/libQtXml.so.4.7.0     /opt/interact/bin/libQtXml.so.4
-#ln -s /opt/interact/bin/libQtNetwork.so.4.7.0 /opt/interact/bin/libQtNetwork.so.4
-
-# add eBeamIO to the list of starting applications
-# first remove any existing line of ours
-####sed -i s#LD_LIBRARY_PATH=/opt/interact/bin\ /opt/interact/bin/eBeamIO\ \&## /etc/X11/Xsession.d/55gnome-session_gnomerc
-# append our lines
-####echo "LD_LIBRARY_PATH=/opt/interact/bin /opt/interact/bin/eBeamIO &" >> /etc/X11/Xsession.d/55gnome-session_gnomerc
-
-# add starting ebeam-server to init.d
-####ln -s /opt/interact/bin/initd-interact /etc/init.d/interact
-####if which update-rc.d >/dev/null 2>&1; then
-####    update-rc.d interact defaults 15
-####else
-####    for RUNLEVEL in 2 3 5; do
-####        ln -s ../init.d/interact /etc/rc$RUNLEVEL.d/S15interact
-####    done
-####fi
-# start ebeam-server
-####if which invoke-rc.d >/dev/null 2>&1; then
-####    invoke-rc.d interact start
-####else
-####    /etc/init.d/interact start
-####fi
-#create menu item
 if [ ! -d /etc/xdg/menus/applications-merged ]; then
     mkdir -p /etc/xdg/menus/applications-merged
 fi
