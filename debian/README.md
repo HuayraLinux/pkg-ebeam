@@ -8,6 +8,6 @@ El paquete pretende ser multiarch, para instalarlo en sistemas de 64bits se tien
 
 $ dpkg --add-architecture i386
 
-
+El paquete está en estapa de desarrollo!
 
 
