@@ -1,8 +1,14 @@
+Source: ebeam-interact
+Section: nonfree/main
+Priority: extra
+Maintainer: Equipo Huayra <equipohuayra@gmail.com>
+Build-Depends: debhelper (>= 9.0.0)
+Standards-Version: 3.9.6
+Homepage: http://www.e-beam.com/
+Vcs-Browser: https://github.com/HuayraLinux/pkg-ebeam
+Vcs-Git: https://github.com/HuayraLinux/pkg-ebeam.git
+
 Package: ebeam-interact
-Version: 3.2.2.1huayra1
-Section: base
-Installed-Size: 24000
-Priority: optional
 Architecture: all
 Multiarch: same
 Depends: libbluetooth3,
@@ -28,5 +34,8 @@ Depends: libbluetooth3,
     libxtst6,
     libxxf86vm1,
     zlib1g
-Maintainer: Equipo Huayra <equipohuayra@gmail.com>
-Description: eBeam Interactive Suite
+Description: eBeam Interactive Suite (pizarra digital)
+ Driver y aplicación par la pizarra digital Ebeam Edge de Luidia
+
+
+
