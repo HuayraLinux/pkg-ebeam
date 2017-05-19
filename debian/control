@@ -9,8 +9,8 @@ Vcs-Browser: https://github.com/HuayraLinux/pkg-ebeam
 Vcs-Git: https://github.com/HuayraLinux/pkg-ebeam.git
 
 Package: ebeam-interact
-Architecture: all
-Multiarch: same
+Architecture: any
+Multi-Arch: same
 Depends: libbluetooth3,
     perl,
     libasound2,
@@ -33,9 +33,10 @@ Depends: libbluetooth3,
     libxslt1.1,
     libxtst6,
     libxxf86vm1,
-    zlib1g
-Description: eBeam Interactive Suite (pizarra digital)
- Driver y aplicación par la pizarra digital Ebeam Edge de Luidia
+    zlib1g,
+    ssh-askpass-gnome | ssh-askpass
+Description: eBeam Interactive Suite (pizarra digital Luidia)
+ Driver y aplicación para la pizarra digital Ebeam Edge de Luidia
 
 
 
