@@ -1,0 +1,10 @@
+
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Terminal=false
+Exec=/opt/interact/bin/eBeamIO
+Name=eBeam IO
+Icon=/opt/interact/desktop/scrapbook.png
+Categories=eBeam;

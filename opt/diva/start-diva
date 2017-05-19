@@ -1,0 +1,9 @@
+#!/bin/bash
+echo ""
+echo "start eBeam-Stylus-Driver"
+echo ""
+
+export LD_LIBRARY_PATH=/opt/diva
+export SUDO_ASKPASS=/usr/bin/ssh-askpass
+sudo -k -A /opt/diva/ebeam-stylus-driver start
+/opt/diva/eBeam_Mouse_Driver

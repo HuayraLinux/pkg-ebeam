@@ -1,0 +1,10 @@
+
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Terminal=false
+Exec=/opt/diva/ebeam-calibration
+Name=Calibrate
+Icon=/opt/interact/desktop/calibrate.svg
+Categories=Other;

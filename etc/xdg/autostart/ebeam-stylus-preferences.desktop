@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=eBeam Stylus Preferences
+Exec=/opt/diva/delayed-preferences.sh
+Type=Application
+Terminal=false
+Categories=Other;

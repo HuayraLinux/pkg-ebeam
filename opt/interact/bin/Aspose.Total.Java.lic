@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<License>
+  <Data>
+    <LicensedTo>Luidia, Inc</LicensedTo>
+    <LicenseType>Developer OEM</LicenseType>
+    <LicenseNote>Limited to 1 developer.</LicenseNote>
+    <OrderID>130108160415</OrderID>
+    <OEM>This is a redistributable license</OEM>
+    <Products>
+      <Product>Aspose.Total for Java</Product>
+    </Products>
+    <EditionType>Enterprise</EditionType>
+    <SerialNumber>a8f80a00-638a-4fa4-9884-12f31adb7a39</SerialNumber>
+    <SubscriptionExpiry>20140110</SubscriptionExpiry>
+    <LicenseVersion>2.2</LicenseVersion>
+  </Data>
+  <Signature>hGNLpCDnXXQXcDd6U/ccb5P0NAN6R0a3z2irKApBK03RCEoororzA4B2MfZKFGK/wZMFi/hHZL0oK3//2V9IA/YvxoSugnGU2WwkXtNmie2GVL3UMi0P+68t/+uaypvuTbOZOOq0tlXfKEpcckE6rja7bqBAitQhbGjKF+f73pk=</Signature>
+</License>

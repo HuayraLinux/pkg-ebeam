@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ $LANG == "pt_BR.UTF-8" ] || [ $LANG == "pt_BR.utf8" ]; then
+    firefox /opt/interact/help_pt_BR/Help.htm 
+elif [ $LANG == "es_MX.UTF-8" ] || [ $LANG == "es_MX.utf8" ]; then
+    firefox /opt/interact/help_es_MX/Help.htm
+elif [ $LANG == "ru_RU.UTF-8" ] || [ $LANG == "ru_RU.utf8" ]; then
+    firefox /opt/interact/help_ru_RU/Help.htm
+else
+    firefox /opt/interact/help_en_US/Help.htm
+fi

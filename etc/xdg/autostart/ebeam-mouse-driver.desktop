@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=eBeam Mouse Driver
+Comment=Mouse driver for eBeam Stylus Driver
+Exec=/opt/diva/ebeam-mouse-driver
+Terminal=false
+Type=Application
+

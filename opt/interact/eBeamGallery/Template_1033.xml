@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root version="1.0">
+    <Resource LANG="en">
+		 <Folder label="Sample Templates" filePath="Templates">
+			<File label="Chess" filePath="Chess.tsb" icon="Chess.png"/>
+			<File label="Clock" filePath="Clock.tsb" icon="Clock.png"/>
+			<File label="Continents" filePath="Continents.tsb" icon="Continents.png"/>
+			<File label="FlowerReproductive" filePath="FlowerReproductive.tsb" icon="FlowerReproductive.png"/>
+			<File label="Musicscale" filePath="Musicscale.tsb" icon="Musicscale.png"/>
+			<File label="SolarSystem" filePath="SolarSystem.tsb" icon="SolarSystem.png"/>
+		</Folder>
+		<Folder label="My Templates" filePath="MY_TEMPLATE_DIR">
+		</Folder>
+    </Resource>
+</root>

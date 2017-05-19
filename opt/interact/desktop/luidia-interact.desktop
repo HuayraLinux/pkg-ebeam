@@ -1,0 +1,11 @@
+
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Terminal=false
+Exec=interact %U
+Name=eBeam Interact
+Icon=/opt/interact/desktop/interact.svg
+Categories=Graphics;Education;Utility;
+MimeType=application/esb;

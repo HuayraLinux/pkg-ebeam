@@ -1,0 +1,8 @@
+#!/bin/bash
+echo ""
+echo "stop eBeam-Stylus-Driver"
+echo ""
+
+export SUDO_ASKPASS=/usr/bin/ssh-askpass
+sudo -k -A /opt/diva/ebeam-stylus-driver stop
+

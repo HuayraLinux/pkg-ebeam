@@ -1,0 +1,1 @@
+KERNEL=="hidraw*", ATTRS{idVendor}=="2650", ATTRS{idProduct}=="1311", OPTIONS+="last_rule", SYMLINK+="ebeam-%k", MODE="0666"

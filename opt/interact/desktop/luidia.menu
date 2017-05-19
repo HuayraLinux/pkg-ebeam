@@ -1,0 +1,21 @@
+<!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
+ "http://www.freedesktop.org/standards/menu-spec/1.0/menu.dtd">
+<Menu>
+  <Name>Applications</Name>
+  <Menu>
+    <Name>Luidia</Name>
+    <Directory>luidia.directory</Directory>
+    <DirectoryDir>/opt/interact/desktop</DirectoryDir>
+    <AppDir>/opt/interact/desktop</AppDir>
+    <Include>
+      <Filename>luidia-scrapbook.desktop</Filename>
+      <Filename>luidia-calibrate.desktop</Filename>
+      <Filename>luidia-systempref.desktop</Filename>
+    </Include>
+    <Layout>
+      <Filename>luidia-scrapbook.desktop</Filename>
+      <Filename>luidia-calibrate.desktop</Filename>
+      <Filename>luidia-systempref.desktop</Filename>
+    </Layout>
+  </Menu>
+</Menu>

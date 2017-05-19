@@ -1,0 +1,32 @@
+Package: ebeam-interact
+Version: 3.2.2.1huayra1
+Section: base
+Installed-Size: 24000
+Priority: optional
+Architecture: all
+Multiarch: same
+Depends: libbluetooth3,
+    perl,
+    libasound2,
+    libatk1.0-0,
+    libc6,
+    libcairo2,
+    libgcc1,
+    libgl1-mesa-glx | libgl1,
+    libglib2.0-0,
+    libglu1-mesa | libglu1,
+    libgtk2.0-0,
+    libice6,
+    liblcms2,
+    libpango1.0-0,
+    libsm6,
+    libstdc++6,
+    libx11-6,
+    libxext6,
+    libxml2,
+    libxslt1.1,
+    libxtst6,
+    libxxf86vm1,
+    zlib1g
+Maintainer: Equipo Huayra <equipohuayra@gmail.com>
+Description: eBeam Interactive Suite

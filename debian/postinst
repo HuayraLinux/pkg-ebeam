@@ -1,0 +1,102 @@
+#!/bin/sh
+# create a few links to /opt/interact/bin
+ln -s /opt/interact/bin/interact /usr/bin/interact
+####ln -s /opt/interact/bin/init-diva /usr/sbin/init-diva
+####ln -s /opt/interact/bin/init-calibration /opt/interact/bin/ebeam-calibrate
+####ln -s /opt/interact/bin/15_interact /etc/pm/sleep.d/15_interact
+
+#ln -s /opt/interact/bin/ebeam-server /usr/sbin/ebeam-server
+
+# links for Qt libs
+#ln -s /opt/interact/bin/libQtCore.so.4.7.0    /opt/interact/bin/libQtCore.so.4
+#ln -s /opt/interact/bin/libQtGui.so.4.7.0     /opt/interact/bin/libQtGui.so.4
+#ln -s /opt/interact/bin/libQtXml.so.4.7.0     /opt/interact/bin/libQtXml.so.4
+#ln -s /opt/interact/bin/libQtNetwork.so.4.7.0 /opt/interact/bin/libQtNetwork.so.4
+
+# add eBeamIO to the list of starting applications
+# first remove any existing line of ours
+####sed -i s#LD_LIBRARY_PATH=/opt/interact/bin\ /opt/interact/bin/eBeamIO\ \&## /etc/X11/Xsession.d/55gnome-session_gnomerc
+# append our lines
+####echo "LD_LIBRARY_PATH=/opt/interact/bin /opt/interact/bin/eBeamIO &" >> /etc/X11/Xsession.d/55gnome-session_gnomerc
+
+# add starting ebeam-server to init.d
+####ln -s /opt/interact/bin/initd-interact /etc/init.d/interact
+####if which update-rc.d >/dev/null 2>&1; then
+####    update-rc.d interact defaults 15
+####else
+####    for RUNLEVEL in 2 3 5; do
+####        ln -s ../init.d/interact /etc/rc$RUNLEVEL.d/S15interact
+####    done
+####fi
+# start ebeam-server
+####if which invoke-rc.d >/dev/null 2>&1; then
+####    invoke-rc.d interact start
+####else
+####    /etc/init.d/interact start
+####fi
+#create menu item
+if [ ! -d /etc/xdg/menus/applications-merged ]; then
+    mkdir -p /etc/xdg/menus/applications-merged
+fi
+cp /opt/interact/desktop/luidia.menu /etc/xdg/menus/applications-merged/luidia.menu
+# This seems to get Ubuntu (and other Gnome desktops?) to notice the menu file
+killall gnome-panel
+#cp /etc/xdg/menus/applications-merged/ebeam.menu /etc/xdg/menus/applications-merged/luidia.menu
+ln -s /opt/interact/desktop/luidia-scrapbook.desktop /usr/share/applications
+# KDE won't update the menu until you run the following
+if [ -e /usr/bin/kbuildsycoca ]; then
+	/usr/bin/kbuildsycoca
+fi
+
+#install X mouse driver
+####if [ -d /usr/lib/xorg/modules/drivers ]; then
+####    ln -s /opt/interact/bin/ebeam_drv.so /usr/lib/xorg/modules/drivers/ebeam_drv.so
+
+####    /opt/interact/bin/ebeam-xconf.pl /etc/X11/xorg.conf install
+
+####    if [ ! -e /etc/X11/xorg.conf ]; then
+####        echo "X not configured to use eBeam X mouse driver"
+####    else
+####	echo "Need to restart X to enable mouse control (Ctrl-Alt-Backspace or Ctrl-Alt-Delete, click Restart)"
+####    fi
+
+####else
+####    echo "ebeam_drv.so not installed"
+####fi
+
+############ NEW DIVA #########################
+ln -fs /opt/diva/eBeam_Stylus_Driver /usr/sbin/eBeam_Stylus_Driver
+ln -fs /opt/diva/eBeam_Stylus_Preferences /usr/bin/eBeam_Stylus_Preferences
+ln -fs /opt/diva/eBeam_Calibration /usr/bin/eBeam_Calibration
+
+ln -fs /opt/diva/ebeam-stylus-driver /etc/init.d/ebeam-stylus-driver
+
+update-rc.d ebeam-stylus-driver defaults 15
+
+invoke-rc.d ebeam-stylus-driver start
+
+/opt/diva/update-icon-permissions.sh
+
+MAJOR_VERSION="`lsb_release -a 2>&1 | grep Release | awk '{print \$2;}' | awk -F. '{print \$1;}'`"
+
+echo "ubuntu version: $MAJOR_VERSION"
+
+if [[ $MAJOR_VERSION -ge 12 ]]; then
+    killall unity-2d-panel
+fi
+
+USERS=`ps aux | grep nautilus | grep -v grep | awk '{ print $1 }'`
+
+export DISPLAY=:0
+
+# start mouse driver for all currently logged on users
+# also, update their unity preferences to allow the stylus preferences icon to show up
+for user in $USERS; do
+####    su $user -c "nohup /opt/diva/ebeam-mouse-driver "
+####    su $user -c "nohup /opt/diva/delayed-preferences.sh &"
+    if [[ $MAJOR_VERSION -ge 12 ]]; then
+	su $user -c "nohup unity-2d-panel &"
+    fi
+done
+
+exit 0

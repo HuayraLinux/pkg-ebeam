@@ -1,0 +1,116 @@
+#!/bin/sh
+#       interact
+#   Simple script to launch Interact
+#   The working wine directory is ~/.interact
+#   If ~/.interact is not found, it will be created.
+
+export LD_LIBRARY_PATH=/opt/interact/bin
+
+find_ia_path()
+{
+        if [ -z $IA_PATH ]
+        then
+                mypath=`which $0`
+                if [ -L $mypath ] # called through a sym-link
+                then
+                        mypath=`ls -l $mypath | sed -e 's/^.*-> //' | sed -e 's/\/bin//'`
+                fi
+                IA_PATH=`dirname $mypath | sed -e 's/\/bin//'`
+        fi
+        # quick check
+        if [ ! -x $IA_PATH/../diva/eBeam_Stylus_Driver ]
+        then
+		echo $IA_PATH/../diva/eBeam_Stylus_Driver not found
+                echo Error in installation
+                return 1
+        fi
+        export IA_PATH
+        return 0
+}
+
+find_ia_path
+if [ ! $? = 0 ]
+then
+        exit 1
+fi
+
+SERV_ONLY=1
+SKIP_SERV=1
+SCRAPBOOK=1
+
+if [ $# -gt 0 ]; then
+	if [ $1 = "--server-only" ]; then
+		SERV_ONLY=0
+        elif [ $1 = "--scrapbook" ]; then
+                SCRAPBOOK=0
+	fi
+fi
+
+# check to see which applications are already running
+# check for eBeam_Stylus_Driver
+ps -e | fgrep -v fgrep | fgrep -q eBeam_Stylus_Dr
+ebserv=$?
+# check for eBeamInteractive
+ps -e | fgrep -v fgrep | fgrep -q Scrapbook
+ebia=$?
+
+#
+# Start eBeam_Stylus_Driver
+#
+if [ $ebserv = 0 -o $SKIP_SERV = 0 ]; then
+	echo eBeam Server is already running
+        # make sure is_core is set
+        $IA_PATH/bin/ebeam-setcore 1
+elif [ `readlink /dev/fd/0` = /dev/null ]; then
+	# There is no tty, restart in an xterm (need to enter root pw)
+	xterm -T "Launch eBeam Server" -e "'$0' --server-only ; echo Done. Press Enter to exit. ; read JUNK"
+	# Verify that eBeam Server started
+	ps -e | fgrep -v fgrep | fgrep -q eBeam_Stylus_Dr
+	ebserv=$?
+	if [ $ebserv = 1 ]; then
+		exit 1
+	fi
+	SKIP_SERV=0
+elif [ $SKIP_SERV = 1 ]; then
+	if [ $ebia = 0 ]; then
+		# Do clean up
+		killall -9 -Ivr 'ebeam'
+		ebia=1
+	fi
+	echo === Starting eBeam Server
+	if [ $UID != 0 ]; then
+		echo eBeam Server must be launched by root. You may type the root
+		echo password below.
+                # make sure root can still access X
+                xhost + >/dev/null 2>&1
+	fi
+	su -c 'exec $IA_PATH/bin/init-diva >/dev/null 2>&1'
+	if [ $? != 0 ]; then
+		echo Problem starting eBeam_Stylus_Driver
+		exit 1;
+	fi
+	sleep 5 # wait until the server is ready...
+fi
+if [ $SERV_ONLY = 0 ]; then
+	exit 0
+fi
+
+#
+# Start Interact
+#
+#if [ $ebia = 0 ]; then
+#	echo eBeam Interact is already running
+#else
+	echo === Starting Interact
+	exec /opt/interact/bin/eBeamScrapbook "$1" "$2">/dev/null 2>&1 &
+	if [ $SCRAPBOOK = 0 ]; then
+		sleep 5 # wait until interact is up before starting scrapbook.
+	fi
+#fi
+
+#
+# Start Scrapbook
+#
+if [ $SCRAPBOOK = 0 ]; then
+        echo === No separate scrapbook application currently. ===
+fi
