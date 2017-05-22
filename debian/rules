@@ -18,3 +18,7 @@ export DH_OPTIONS
 
 %:
 	dh $@
+
+override_dh_shlibdeps:
+	# LD_LIBRARY_PATH=$(LD_LIBRARY_PATH):opt/diva:opt/interact/bin dh_shlibdeps --dpkg-shlibdeps-params=--ignore-missing-info
+	echo "override"

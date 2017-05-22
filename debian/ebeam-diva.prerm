@@ -1,5 +1,7 @@
 #!/bin/sh
 
+killall eBeam_Stylus_Preferences
+
 invoke-rc.d ebeam-stylus-driver stop
 
 exit 0

@@ -1,5 +1,3 @@
-opt/interact/bin/interact /usr/bin/interact
-opt/interact/desktop/luidia-scrapbook.desktop usr/share/applications/luidia-scrapbook.desktop
 opt/diva/eBeam_Stylus_Driver usr/sbin/eBeam_Stylus_Driver
 opt/diva/eBeam_Stylus_Preferences usr/bin/eBeam_Stylus_Preferences
 opt/diva/eBeam_Calibration usr/bin/eBeam_Calibration

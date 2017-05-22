@@ -1,3 +1,2 @@
 opt/interact/desktop/luidia.menu etc/xdg/menus/applications-merged/luidia.menu
-opt/*	opt/*
-etc/*	etc/*
+opt/interact	opt/
