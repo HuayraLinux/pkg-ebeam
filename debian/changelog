@@ -1,3 +1,10 @@
+ebeam-tools (3.2.2.2huayra2) unstable; urgency=medium
+
+  * Actualización del README.me
+  * Corrección de sección non-free/utils
+
+ -- Fernando Toledo <ragnarok@docksud.com.ar>  Tue, 23 May 2017 11:37:03 -0300
+
 ebeam-tools (3.2.2.2huayra1) unstable; urgency=medium
 
   * Initial release.

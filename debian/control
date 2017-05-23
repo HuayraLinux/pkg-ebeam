@@ -1,5 +1,5 @@
 Source: ebeam-tools
-Section: nonfree/main
+Section: non-free/utils
 Priority: extra
 Maintainer: Equipo Huayra <equipohuayra@gmail.com>
 Build-Depends: debhelper (>= 9.0.0)
