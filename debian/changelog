@@ -1,3 +1,9 @@
+ebeam-tools (3.2.2.2huayra3) unstable; urgency=medium
+
+  * corrección de dependencias
+
+ -- Fernando Toledo <ragnarok@docksud.com.ar>  Tue, 23 May 2017 15:34:24 -0300
+
 ebeam-tools (3.2.2.2huayra2) unstable; urgency=medium
 
   * Actualización del README.me
