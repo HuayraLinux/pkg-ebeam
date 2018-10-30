@@ -2,7 +2,7 @@
 
 Estos paquetes son un "reempaquetado" del original de Luidia que están hechos para versiones de Ubuntu.
 Contienen los drivers para que el lápiz funcione como puntero de mouse. Y la aplicación para dibujar
-sobre el escritorio. Están desarrollados para que funcionen sobre Huayra 3.x
+sobre el escritorio. Están desarrollados para que funcionen sobre Huayra
 
 Lamentablemente es todos software privativo y de 32bits.
 

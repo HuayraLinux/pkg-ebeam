@@ -1,3 +1,9 @@
+ebeam-tools (3.2.2.2huayra4) UNRELEASED; urgency=medium
+
+  * nuevos archivso basando en eBeamInteractiveSuite_3.2.2.2_Ubuntu16_32bit.tgz 
+
+ -- Fernando Toledo <ragnarok@docksud.com.ar>  Tue, 30 Oct 2018 12:25:57 -0300
+
 ebeam-tools (3.2.2.2huayra3) unstable; urgency=medium
 
   * corrección de dependencias

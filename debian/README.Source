@@ -1,0 +1,24 @@
+*No hay* código fuente de ésta aplicación.
+
+El paquete está armado con los archivo del original eBeamInteractiveSuite_3.2.2.2_Ubuntu12_32bit.tgz que 
+se descarga del sitio de Luidia.com.
+
+Ese archivo comprimido trae un autoextraible que se llama *scrapbook-selfextracting.
+A su vez, dentro de este hay embebido un instalador y el paquete .deb (ebeam-interact-1.0.deb)
+Que contiene realmente los archivos ue valen la pena.
+
+Como está empaquetado y pensado a una versión específica de ubuntu, tuvimos que desarmarlo (con dpkg-deb -x) 
+y volverlo a empaquetar de tal forma que funcione sobre Debian (en principio fue jessie y ahora stretch [Huayra4])
+
+Se quitaron todos los archivos libQt* que están en la raiz de las aplicaciones para que se usen directamente
+los de la distro, porque esos estaban enlazados con librerías que ya no existen.
+
+ /opt/interact/bin
+ /opt/interact/eBeamToolPallete
+ /opt/diva
+
+De esta forma, logramos ejecutar ScrapBook, la Paleta y la utilidad de calibración.
+
+Si conocés a alguien que esté trabajando sobre código libre para ésta herramienta, avisanos!
+
+
